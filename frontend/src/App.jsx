@@ -3,7 +3,7 @@ import './App.css';  // Import the external stylesheet
 import Footer from './Footer.jsx';  // Import the Footer component
 import Header from './Header.jsx';  // Import the new Header component
 // Using import at the top of your file
-import interviewImage from '../src/images/interviewcontainer.jpg';
+import interviewImage from '../src/Images/interviewcontainer.jpg';
 import seam from '../src/images/seamless.png';
 import { Link } from 'react-router-dom';
 
