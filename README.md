@@ -154,7 +154,6 @@ pages/
 ### 🌐 Frontend
 - *React.js* – Component-based UI
 - *Tailwind CSS* – Responsive styling
-- *face-api.js* – Facial tracking for mock interviews (public/models)
 - *React Router* – Client-side routing
 
 ### 🧠 AI & Communication
