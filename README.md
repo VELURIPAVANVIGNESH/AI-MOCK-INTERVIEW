@@ -130,8 +130,6 @@ pages/
 ├── interview.jsx # AI-based Interview Q&A component
 ├── interviewQuestions.css # Styles for interview questions
 ├── interviewQuestions.jsx # Display of interview questions
-├── joinInterview.css # Styles for joining interviews
-├── joinInterview.jsx # Join interview session component
 ├── profile.css # Styles for user profile
 ├── profile.jsx # Profile component
 ├── Questions.css # General question styles
