@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './hroruser.css';
+import './hrOruser.css';
 
 const JobSeekerPortal = () => {
   const [isLoaded, setIsLoaded] = useState(false);
