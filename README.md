@@ -75,7 +75,7 @@ Preparing for interviews can be overwhelming and unstructured. HireVerse streaml
 
 
 
-
+```
 
 AI-MOCK-INTERVIEW-BUILDVERSE/
 ├── backend/
@@ -103,7 +103,7 @@ AI-MOCK-INTERVIEW-BUILDVERSE/
 ├── package.json # Project metadata and dependencies
 └── README.md # Project documentation
 
-
+```
 
 
 ---
@@ -112,7 +112,7 @@ AI-MOCK-INTERVIEW-BUILDVERSE/
 
 
 
-
+```
 pages/
 ├── aboutUs.css # Styles for About Us page
 ├── aboutUs.jsx # About Us page layout and content
@@ -139,7 +139,7 @@ pages/
 ├── Upgrade.css # Pricing/upgrade page styles
 ├── Upgrade.jsx # Premium upgrade and subscription component
 
-
+```
 
 ---
 
