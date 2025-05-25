@@ -11,7 +11,7 @@ import {
   Volume2,
   VolumeX,
 } from 'lucide-react';
-import './Interview.css';
+import './interview.css';
 
 // Initialize the Generative AI client (make sure you keep your key private in production!)
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_API_KEY);
