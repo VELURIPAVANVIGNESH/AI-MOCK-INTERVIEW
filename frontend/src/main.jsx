@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ClerkProvider } from '@clerk/clerk-react';
 import App from './App.jsx'; // Your main App component
 import './index.css';
-import Interview from './pages/Interview.jsx';
+import Interview from './pages/interview.jsx';
 import PricingSection from './pages/Upgrade.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import HowItWorks from './pages/howItWorks.jsx';
