@@ -1,0 +1,409 @@
+/* Global resets scoped under .profile-view-wrapper */
+.profile-view-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* CSS Variables */
+  .profile-view-wrapper :root {
+    --primary-bg: #121212;
+    --card-bg: #181818;
+    --primary-color: #00ff7f;
+    --primary-hover: #00cc66;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-color: #2a2a2a;
+    --error-color: #ff4d4d;
+    --shadow-color: rgba(0, 255, 127, 0.15);
+    --readonly-bg: rgba(0, 255, 127, 0.05);
+  
+    /* Additional coloring for modal header and close buttons */
+    --modal-header-bg: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    --close-btn-bg: #ff4d4d;
+  }
+  
+  /* Body styles (scoped) */
+  .profile-view-wrapper body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* App container */
+  .profile-view-app-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Global Close Button (now positioned inside the card at top-right) */
+  .profile-view-global-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--close-btn-bg);
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .profile-view-global-close-button:hover {
+    background-color: #e60000;
+    transform: scale(1.1);
+  }
+  
+  /* Profile Card */
+  .profile-view-profile-card {
+    /* Position relative so the close button can be absolutely positioned */
+    position: relative;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--shadow-color), 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-view-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-color), 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Profile Name and Role */
+  .profile-view-profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .profile-view-profile-role {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  
+  /* Profile Details */
+  .profile-view-profile-details {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-view-detail-item {
+    display: flex;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .profile-view-detail-item:last-child {
+    border-bottom: none;
+  }
+  
+  .profile-view-detail-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 255, 127, 0.1);
+    border-radius: 8px;
+    margin-right: 1rem;
+  }
+  
+  .profile-view-detail-content {
+    flex: 1;
+  }
+  
+  .profile-view-detail-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+  
+  .profile-view-detail-value {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  /* Edit Button */
+  .profile-view-edit-button {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+  }
+  
+  .profile-view-edit-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 204, 102, 0.3);
+  }
+  
+  .profile-view-edit-button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Modal Overlay and Content */
+  .profile-view-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+  }
+  
+  .profile-view-modal-content {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 0;
+    animation: profile-view-modalFadeIn 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes profile-view-modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  /* Modal Header with additional coloring */
+  .profile-view-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--modal-header-bg);
+    color: var(--card-bg);
+  }
+  
+  .profile-view-modal-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  /* Modal Close Button */
+  .profile-view-close-button {
+    background-color: var(--close-btn-bg);
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .profile-view-close-button:hover {
+    background-color: #e60000;
+    transform: scale(1.1);
+  }
+  
+  /* Edit Form */
+  .profile-view-edit-form {
+    padding: 1.5rem;
+  }
+  
+  .profile-view-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-view-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  
+  .profile-view-form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .profile-view-form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 255, 127, 0.1);
+  }
+  
+  /* Read-only field */
+  .profile-view-read-only-field {
+    background-color: var(--readonly-bg) !important;
+    color: var(--text-secondary) !important;
+    cursor: not-allowed;
+    border-color: var(--border-color) !important;
+  }
+  
+  .profile-view-read-only-field:focus {
+    box-shadow: none !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  /* Input error state */
+  .profile-view-input-error {
+    border-color: var(--error-color) !important;
+  }
+  
+  .profile-view-error-message {
+    color: var(--error-color);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Form actions */
+  .profile-view-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .profile-view-cancel-button {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .profile-view-cancel-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+  }
+  
+  .profile-view-save-button {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .profile-view-save-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 204, 102, 0.3);
+  }
+  
+  .profile-view-save-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-view-profile-card {
+      padding: 1.5rem;
+    }
+    
+    .profile-view-profile-name {
+      font-size: 1.5rem;
+    }
+    
+    .profile-view-form-actions {
+      flex-direction: column;
+    }
+    
+    .profile-view-form-actions button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-view-app-container {
+      padding: 1rem;
+    }
+    
+    .profile-view-modal-content {
+      max-height: 95vh;
+    }
+  }
+  /* Add these styles to your existing profile.css */
+
+/* Style for select elements */
+.profile-view-form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+.profile-view-form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 255, 127, 0.1);
+}
+
+.profile-view-form-group select option {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* Adjust error state for select */
+.profile-view-input-error {
+  border-color: var(--error-color) !important;
+}
+
+/* Rest of your existing CSS remains the same */

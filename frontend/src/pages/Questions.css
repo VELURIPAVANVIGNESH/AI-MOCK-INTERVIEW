@@ -1,0 +1,361 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Page Container */
+.questions-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Page Heading */
+.page-heading {
+  text-align: center;
+  padding: 100px 20px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.page-heading h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 25px;
+  word-wrap: break-word;
+  transition: transform 0.3s ease, color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.page-heading h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #2ea043;
+  transition: width 0.3s ease;
+}
+
+.page-heading h1:hover::after {
+  width: 150px;
+}
+
+.page-heading .quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+  margin-top: 15px;
+}
+
+.page-heading .quote:hover {
+  color: #2ea043;
+}
+
+/* Questions Container */
+.questions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 20px 20px 120px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Modern Card Design */
+.card-container {
+  width: 340px;
+  height: 450px; /* Increased height to accommodate content and button */
+  perspective: 1000px;
+  margin: 20px;
+  position: relative;
+}
+
+.question-card {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.9);
+  position: relative;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 25px; /* Reduced padding to fit content better */
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-left: 3px solid #2ea043;
+}
+
+/* Angle design element */
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #2ea043;
+  transform: translate(50%, -50%) rotate(45deg);
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.question-card:hover::before {
+  transform: translate(30%, -30%) rotate(45deg) scale(1.2);
+}
+
+/* Bottom angle design element */
+.question-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #2ea043;
+  transform: translate(-50%, 50%) rotate(45deg);
+  z-index: 1;
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+.question-card:hover::after {
+  transform: translate(-30%, 30%) rotate(45deg) scale(1.2);
+  opacity: 0.9;
+}
+
+.question-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(46, 160, 67, 0.3);
+  border-left: 5px solid #2ea043;
+}
+
+/* Card content */
+.card-content {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 15px; /* Reduced margin to fit content */
+}
+
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #2ea043;
+  transition: width 0.3s ease;
+}
+
+.question-card:hover .card-header::after {
+  width: 80px;
+}
+
+.question-card h2 {
+  font-size: 1.6rem; /* Reduced font size to fit within the card */
+  color: #2ea043;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-bottom: 5px;
+}
+
+.card-body {
+  text-align: left;
+  width: 100%;
+  flex-grow: 1; /* Allow the body to grow and shrink to fit content */
+  margin-bottom: 15px; /* Added margin to ensure space before button */
+  overflow: hidden; /* Prevent text overflow */
+}
+
+.question-card p {
+  font-size: 0.9rem; /* Reduced font size to fit more content comfortably */
+  margin-bottom: 8px; /* Reduced margin between paragraphs */
+  color: #fff;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Feature bullet points */
+.question-card p::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #2ea043;
+}
+
+/* Button styles */
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px; /* Reduced margin to fit button */
+}
+
+.lets-go-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #2ea043; /* Default green border */
+  padding: 10px 24px; /* Reduced padding to fit button better */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem; /* Reduced font size to fit within card */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.lets-go-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2ea043;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.lets-go-btn:hover::before {
+  width: 100%;
+}
+
+.lets-go-btn:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  border-color: #fff; /* White border on hover instead of blue */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4); /* Adjusted shadow to match white border */
+}
+
+.question-card a {
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .questions-container {
+    gap: 40px;
+  }
+  
+  .card-container {
+    width: 320px;
+    height: 430px; /* Adjusted height for smaller screens */
+  }
+  
+  .question-card {
+    padding: 25px 20px; /* Reduced padding for smaller screens */
+  }
+  
+  .question-card h2 {
+    font-size: 1.5rem; /* Slightly smaller on medium screens */
+  }
+  
+  .question-card p {
+    font-size: 0.85rem; /* Slightly smaller on medium screens */
+  }
+  
+  .lets-go-btn {
+    padding: 8px 20px; /* Reduced padding for medium screens */
+    font-size: 0.9rem; /* Smaller font on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .questions-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .card-container {
+    width: 90%;
+    max-width: 350px;
+    height: 450px; /* Adjusted height for mobile */
+  }
+  
+  .question-card {
+    padding: 25px 20px; /* Reduced padding for mobile */
+  }
+  
+  .question-card h2 {
+    font-size: 1.4rem; /* Smaller on mobile */
+  }
+  
+  .question-card p {
+    font-size: 0.8rem; /* Smaller on mobile */
+  }
+  
+  .lets-go-btn {
+    padding: 8px 20px; /* Reduced padding for mobile */
+    font-size: 0.9rem; /* Smaller font on mobile */
+  }
+  
+  .page-heading {
+    padding: 70px 20px 50px;
+  }
+  
+  .page-heading h1 {
+    font-size: 2.2rem;
+  }
+  
+  .page-heading .quote {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card-container {
+    height: 450px; /* Ensure consistent height on very small screens */
+  }
+  
+  .question-card {
+    padding: 20px 15px; /* Further reduced padding for very small screens */
+  }
+  
+  .question-card h2 {
+    font-size: 1.3rem; /* Smaller on very small screens */
+  }
+  
+  .question-card p {
+    font-size: 0.75rem; /* Smaller on very small screens */
+    margin-bottom: 6px; /* Reduced margin for very small screens */
+  }
+  
+  .lets-go-btn {
+    padding: 6px 18px; /* Further reduced padding for very small screens */
+    font-size: 0.8rem; /* Smaller font on very small screens */
+  }
+}
